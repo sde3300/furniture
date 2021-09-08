@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<title>로그인</title>
+	<style>
+		:root {
+			--body-background-color: #f5f6f7;
+			--font-color: #4e4e4e;
+			--border-gray-color: #dadada;
+			--naver-green-color: black;
+		}
+
+
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			background: var(--body-background-color);
+		}
+
+		.main-container {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 21px;
+		}
+
+		.main-container .main-wrap {
+			width: 768px;
+
+		}
+
+		.main-container .main-wrap .sel-lang-wrap .lang-select {
+			width: 96px;
+			height: 30px;
+			color: var(--font-color);
+			border: solid 1px var(--border-gray-color);
+		}
+
+		.main-container .main-wrap .logo-wrap {
+			padding-top: 55px;
+		}
+
+		.main-container .main-wrap .logo-wrap img {
+			width: 231px;
+			height: 44px;
+		}
+
+		.main-container .main-wrap header .sel-lang-wrap {
+			display: flex;
+			justify-content: flex-end;
+		}
+
+		.main-container .main-wrap header .logo-wrap {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.login-input-section-wrap {
+			padding-top: 60px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.login-input-wrap {
+			width: 465px;
+			height: 48px;
+			border: solid 1px var(--border-gray-color);
+			background: white;
+		}
+
+		.password-wrap {
+			margin-top: 13px;
+		}
+
+		.login-input-wrap input {
+			border: none;
+			width: 430px;
+			margin-top: 10px;
+			font-size: 14px;
+			margin-left: 10px;
+			height: 30px;
+		}
+
+		.login-button-wrap {
+			padding-top: 13px;
+		}
+
+		.login-button-wrap button {
+			width: 465px;
+			height: 48px;
+			font-size: 18px;
+			background: var(--naver-green-color);
+			color: white;
+			border: solid 1px var(--naver-green-border-color);
+		}
+
+		.login-stay-sign-in {
+			width: 465px;
+			height: 52px;
+
+			display: flex;
+			font-size: 15px;
+			color: #4e4e4e;
+			align-items: center;
+			justify-content: flex-start;
+			border-bottom: solid 1px var(--border-gray-color);
+		}
+
+		.login-stay-sign-in i {
+			font-size: 25px;
+			color: #9ba1a3;
+		}
+
+		.login-stay-sign-in span {
+			padding-left: 5px;
+			line-height: 25px;
+		}
+
+		.Easy-sgin-in-wrap {
+
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding-top: 40px;
+
+		}
+
+		.Easy-sgin-in-wrap h2 {
+			font-size: 20px;
+		}
+
+		.Easy-sgin-in-wrap .sign-button-list {
+			padding-top: 25px;
+			list-style: none;
+			width: 465px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.Easy-sgin-in-wrap .sign-button-list li {
+			padding-bottom: 10px;
+		}
+
+		.Easy-sgin-in-wrap .sign-button-list li button {
+			width: 465px;
+			height: 56px;
+			border: solid 1px var(--border-gray-color);
+			text-align: left;
+			background: white;
+		}
+
+		.Easy-sgin-in-wrap .sign-button-list li button i {
+			padding-left: 15px;
+			font-size: 20px;
+		}
+
+		.fa-qrcode {
+			color: var(--naver-green-color);
+		}
+
+		.fa-line {
+			color: var(--naver-green-color);
+		}
+
+		.fa-facebook-square {
+			color: #4064ac;
+		}
+
+		.Easy-sgin-in-wrap .sign-button-list li button span {
+			padding-left: 20px;
+			font-size: 18px;
+		}
+
+		.Easy-sgin-in-wrap .forget-msg {
+			color: var(--font-color);
+			font-size: 14px;
+			padding-top: 10px;
+
+		}
+
+		.btn_area {
+			margin: 30px 0 91px;
+		}
+
+		#btnJoin {
+			width: 100%;
+			padding: 21px 0 17px;
+			border: 0;
+			cursor: pointer;
+			color: #fff;
+			background-color: black;
+			font-size: 20px;
+			font-weight: 400;
+			font-family: Dotum, '돋움', Helvetica, sans-serif;
+		}
+
+		#KG_header .backBtn {
+			display: inline-block;
+			margin: 40px 0 12px;
+			padding-left: 10px;
+			width: 90px;
+			height: 30px;
+			line-height: 28px;
+			background: url(//storage.keepgrow.com/admin/campaign/20200611023439767.png) no-repeat 10px;
+			background-size: auto 12px;
+			background-color: #fff;
+			border: 1px solid #efefef;
+			border-radius: 30px;
+			font-size: 13px;
+			text-align: center;
+			color: #222;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			cursor: pointer;
+		}
+
+		@font-face {
+    font-family: 'ELAND_Choice_M';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Choice_M.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+  *{
+    font-family: 'ELAND_Choice_M';
+  }
+	</style>
+</head>
+
+<body>
+
+
+	<div class="main-container">
+		<div class="main-wrap">
+			<a class="login" href="/main.html">
+				<div id="KG_header">
+					<div class="backBtn">뒤로가기</div>
+				</div>
+			</a>
+			<hr class="featurette-divider"><br><br>
+			<header>
+				<h1 style="text-align: center;">로그인</h1>
+			</header>
+			<section class="login-input-section-wrap">
+				<div class="login-input-wrap">
+					<input placeholder="Username" type="text"></input>
+				</div>
+				<div class="login-input-wrap password-wrap">
+					<input placeholder="Password" type="password"></input>
+				</div><br>
+
+
+				<div class="btn_area">
+					<a class="btn" href="./main.html">
+						<button type="button" id="btnJoin">
+							<span>로그인</span>
+						</button></a>
+
+					<div class="login-stay-sign-in">
+						<i class="far fa-check-circle"></i>
+					</div>
+			</section>
+			<section class="Easy-sgin-in-wrap">
+				</ul>
+				<p class="forget-msg">Forgot your Username or Password? | Sign up</p>
+			</section><br><br>
+			<hr class="featurette-divider">
+		</div>
+
+</body>
+
+</html>

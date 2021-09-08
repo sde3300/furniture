@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lnag="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="sign_up.css">
+
+</head>
+<script src="/jquery-3.6.0.js"></script>
+<script>
+    // $(document).ready(function(){
+    //     $(document).on("click",".frm_submit",function(){
+    //         alert(window.location.search);
+    //     });
+    // });
+
+    function checkform() {
+        $(".pwd_not").hide();
+        let pw1 = $("#pswd1").val();
+        let pw2 = $("#pswd2").val();
+
+        if ($("#id").val() == "") {
+            alert("아이디를 입력해 주세요.");
+            $("#id").focus();
+            return false;
+        }
+
+        if ($("#pswd1").val() == "") {
+            alert("비밀번호를 입력해주세요.");
+            $("#pswd1").focus();
+            return false;
+        }
+
+        if ($("#pswd2").val() == "") {
+            alert("비밀번호 확인을 입력해주세요.");
+            $("#pswd2").focus();
+            return false;
+        }
+
+        if (pw1 != pw2) {
+            alert("비밀번호가 일치하지 않습니다.");
+            $(".pwd_not").show();
+            return false;
+        }
+
+        if ($("#name").val() == "") {
+            alert("이름을 입력해 주세요.");
+            return false;
+        }
+
+        if ($("#yy").val() == "") {
+            alert("출생 연도를 입력해 주세요.");
+            return false;
+        }
+
+        if ($("#mm").val() == "") {
+            alert("출생 월을 선택해주세요.");
+            return false;
+        }
+
+        if ($("#dd").val() == "") {
+            alert("출생 일을 선택해주세요.");
+            return false;
+        }
+
+        if ($("#gender").val() == "") {
+            alert("성별을 선택해주세요.");
+            return false;
+        }
+
+        if ($("#mobile").val() == "") {
+            alert("핸드폰번호를 입력해주세요.");
+            return false;
+        }
+
+        $("#frm").submit();
+
+    }
+</script>
+
+
+<style>
+    .pwd_not {
+        color: crimson;
+    }
+
+    #KG_header .backBtn {
+        display: inline-block;
+        margin: 40px 0 12px;
+        padding-left: 10px;
+        width: 90px;
+        height: 30px;
+        line-height: 28px;
+        background: url(//storage.keepgrow.com/admin/campaign/20200611023439767.png) no-repeat 10px;
+        background-size: auto 12px;
+        background-color: #fff;
+        border: 1px solid #efefef;
+        border-radius: 30px;
+        font-size: 13px;
+        text-align: center;
+        color: #222;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+    @font-face {
+    font-family: 'ELAND_Choice_M';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Choice_M.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+  *{
+    font-family: 'ELAND_Choice_M';
+  }
+</style>
+
+<body>
+    <!-- header -->
+
+    <div id="header">
+        <h1>회원가입</h1>
+    </div>
+    <!-- wrapper -->
+    <div id="wrapper">
+        <form method="get" action="sign_up_co.html" id="frm">
+            <!-- content-->
+            <div id="content">
+
+                <!-- ID --><a class="login" href="/main.html">
+                    <div id="KG_header">
+                        <div class="backBtn">뒤로가기</div>
+                    </div>
+                </a>
+                <div>
+                    <hr class="featurette-divider">
+                    <h3 class="join_title">
+                        <label for="id">아이디</label>
+                    </h3>
+                    <span class="box int_id">
+                        <input type="text" name="id" id="id" class="int" maxlength="20" required>
+                    </span>
+                    <span class="error_next_box"></span>
+                </div>
+
+                <!-- PW1 -->
+                <div>
+                    <h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
+                    <span class="box int_pass">
+                        <input type="password" id="pswd1" class="int" maxlength="20">
+                        <span id="alertTxt">사용불가</span>
+                    </span>
+                    <span class="error_next_box"></span>
+                </div>
+
+                <!-- PW2 -->
+                <div>
+                    <h3 class="join_title">
+                        <label for="pswd2">비밀번호 재확인</label>
+                    </h3>
+                    <span class="box int_pass_check">
+                        <input type="password" id="pswd2" class="int" maxlength="20">
+                    </span>
+                    <h4 class="pwd_not" style="display:none">비밀번호가 일치하지 않습니다.</h4>
+                    <span class="error_next_box"></span>
+                </div>
+
+                <!-- NAME -->
+                <div>
+                    <h3 class="join_title"><label for="name">이름</label></h3>
+                    <span class="box int_name">
+                        <input type="text" id="name" class="int" maxlength="20">
+                    </span>
+                    <span class="error_next_box"></span>
+                </div>
+
+                <!-- BIRTH -->
+                <div>
+                    <h3 class="join_title"><label for="yy">생년월일</label></h3>
+
+                    <div id="bir_wrap">
+                        <!-- BIRTH_YY -->
+                        <div id="bir_yy">
+                            <span class="box">
+                                <input type="text" id="yy" class="int" maxlength="4" placeholder="년(4자)">
+                            </span>
+                        </div>
+
+                        <!-- BIRTH_MM -->
+                        <div id="bir_mm">
+                            <span class="box">
+                                <select id="mm" class="sel">
+                                    <option value="">월</option>
+                                    <option value="01">1월</option>
+                                    <option value="02">2월</option>
+                                    <option value="03">3월</option>
+                                    <option value="04">4월</option>
+                                    <option value="05">5월</option>
+                                    <option value="06">6월</option>
+                                    <option value="07">7월</option>
+                                    <option value="08">8월</option>
+                                    <option value="09">9월</option>
+                                    <option value="10">10월</option>
+                                    <option value="11">11월</option>
+                                    <option value="12">12월</option>
+                                </select>
+                            </span>
+                        </div>
+
+                        <!-- BIRTH_DD -->
+                        <div id="bir_dd">
+                            <span class="box">
+                                <input type="text" id="dd" class="int" maxlength="2" placeholder="일">
+                            </span>
+                        </div>
+
+                    </div>
+                    <span class="error_next_box"></span>
+                </div>
+
+                <!-- GENDER -->
+                <div>
+                    <h3 class="join_title"><label for="gender">성별</label></h3>
+                    <span class="box gender_code">
+                        <select id="gender" class="sel">
+                            <option value="">성별</option>
+                            <option value="M">남자</option>
+                            <option value="F">여자</option>
+                        </select>
+                    </span>
+                    <span class="error_next_box">필수 정보입니다.</span>
+                </div>
+
+                <!-- EMAIL -->
+                <div>
+                    <h3 class="join_title"><label for="email">본인확인 이메일<span class="optional">(선택)</span></label></h3>
+                    <span class="box int_email">
+                        <input type="text" id="email" class="int" maxlength="100" placeholder="선택입력">
+                    </span>
+                    <span class="error_next_box">이메일 주소를 다시 확인해주세요.</span>
+                </div>
+
+                <!-- MOBILE -->
+                <div>
+                    <h3 class="join_title"><label for="phoneNo">휴대전화</label></h3>
+                    <span class="box int_mobile">
+                        <input type="tel" id="mobile" class="int" maxlength="16" placeholder="전화번호 입력">
+                    </span>
+                    <span class="error_next_box"></span>
+                </div>
+
+
+                <!-- JOIN BTN-->
+                <div class="btn_area">
+                    <button type="button" id="btnJoin" onclick="checkform()">
+                        <span>가입하기</span>
+                    </button>
+                    <!-- <button type="button" id="btnJoin" class="frm_submit">
+                        <span>가입하기</span>
+                    </button> -->
+                    <br>
+                    <hr class="featurette-divider">
+                </div>
+
+
+
+            </div>
+            <!-- content-->
+        </form>
+    </div>
+    <!-- wrapper -->
+    </div>
+    </div>
+
+</body>
+
+</html>

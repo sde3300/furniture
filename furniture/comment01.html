@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title>일반후기 게시판</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymoous" />
+
+    <style>
+        /* 게시판 리스트 목록 */
+        .sub_news,
+        .sub_news th,
+        .sub_news td {
+            border: 0;
+        }
+
+        .sub_news a {
+            color: #383838;
+            text-decoration: none;
+        }
+
+        .sub_news {
+            width: 100%;
+            border-bottom: 1px solid #999;
+            color: #666;
+            font-size: 16px;
+            table-layout: fixed;
+        }
+
+        .sub_news caption {
+            display: none;
+        }
+
+        .sub_news th {
+            padding: 5px 0 6px;
+            border-top: solid 1px #999;
+            border-bottom: solid 1px #b2b2b2;
+            background-color: #f1f1f4;
+            color: #333;
+            font-weight: bold;
+            line-height: 45px;
+            vertical-align: top;
+        }
+
+        .sub_news td {
+            padding: 20px 0 9px;
+            border-bottom: solid 1px #d2d2d2;
+            text-align: center;
+            line-height: 18px;
+        }
+
+        .sub_news .date,
+        .sub_news .hit {
+            padding: 0;
+            font-family: Tahoma;
+            font-size: 15px;
+            line-height: normal;
+        }
+
+        .sub_news .title {
+            text-align: left;
+            padding-left: 15px;
+            font-size: 15px;
+        }
+
+        .sub_news .title .pic,
+        .sub_news .title .new {
+            margin: 0 0 2px;
+            vertical-align: middle;
+        }
+
+        .sub_news .title a.comment {
+            padding: 0;
+            background: none;
+            color: #f00;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .sub_news tr.reply .title a {
+            padding-left: 16px;
+            background: url(첨부파일/ic_reply.png) 0 1px no-repeat;
+        }
+
+        /* //게시판 리스트 목록 */
+
+        /* Pagination 가운데정렬 */
+        .pagination {
+            font-family: "Roboto", sans-serif;
+        }
+
+        .pagination li a {
+            border-radius: 0 !important;
+            color: #333 !important;
+        }
+
+        .pagination li.active a {
+            color: #fff !important;
+            background: #444 !important;
+            border-color: #444 !important;
+        }
+
+        @font-face {
+    font-family: 'ELAND_Choice_M';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Choice_M.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+  *{
+    font-family: 'ELAND_Choice_M';
+  }
+    </style>
+</head>
+
+<body>
+    <!-- 내비바 -->
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+                <img src="./img/logo.png" width="30px" />
+                <a class="navbar-brand" href="./main.html"> Dan's 가구</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./main.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./p1bed.html">침대</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./p2chair.html">의자</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./p3table.html">테이블</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                후기게시판
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="./comment01.html">일반후기</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./comment04G.html">포토후기</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav mb-2 mb-md-0 nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./sign_up.html">sign up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./login.html">login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./cart.html">cart</a>
+                        </li>
+                    </ul>
+
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                        <button class="btn btn-outline-success" type="submit">
+                            Search
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-sm">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <!-- 리스트 게시판 시작-->
+        <h1><strong>후기 게시판</strong></h1>
+
+
+
+        <br>
+        <table class="sub_news" border="1" cellspacing="0" summary="게시판의 글제목 리스트">
+            <caption>
+                게시판 리스트
+            </caption>
+            <colgroup>
+                <col />
+                <col width="110" />
+                <col width="100" />
+                <col width="80" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th scope="col">제목</th>
+                    <th scope="col">글쓴이</th>
+                    <th scope="col">날짜</th>
+                    <th scope="col">조회수</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="title">
+                        <a href="./comment02.html">색상도 넘 예쁘고 디자인도 깔끔하고 넘 맘에 들어요</a>
+                    </td>
+                    <td class="name">14ir***</td>
+                    <td class="date">2021.04.19</td>
+                    <td class="hit">123</td>
+                </tr>
+                <tr>
+                    <td class="title">
+                        <a href="./comment02.html">가구가 너무 예뻐요</a>
+                    </td>
+                    <td class="name">fde3***</td>
+                    <td class="date">2021.04.19</td>
+                    <td class="hit">89</td>
+                </tr>
+                <tr>
+                    <td class="title">
+                        <a href="./comment02.html">똑같은거 또 샀어요</a>
+                    </td>
+                    <td class="name">lab***</td>
+                    <td class="date">2021.04.18</td>
+                    <td class="hit">85</td>
+                </tr>
+                <tr>
+                    <td class="title">
+                        <a href="./comment02.html">하나 더 구매했습니다</a>
+                    </td>
+                    <td class="name">24s***</td>
+                    <td class="date">2021.04.18</td>
+                    <td class="hit">49</td>
+                </tr>
+                <tr>
+                    <td class="title">
+                        <a href="./comment02.html">너무 너무 맘에 들어요!</a>
+                    </td>
+                    <td class="name">jnh4***</td>
+                    <td class="date">2021.04.18</td>
+                    <td class="hit">142</td>
+                </tr>
+                <tr>
+                    <td class="title">
+                        <a href="./comment02.html">가성비가 내립니다</a>
+                    </td>
+                    <td class="name">flo***</td>
+                    <td class="date">2021.04.17</td>
+                    <td class="hit">82</td>
+                </tr>
+                <tr>
+                    <td class="title">
+                        <a href="./comment02.html">이사 준비하면서 여러 침대를 알아보다가 선택했어요</a>
+                    </td>
+                    <td class="name">good4***</td>
+                    <td class="date">2021.04.17</td>
+                    <td class="hit">59</td>
+                </tr>
+                <tr>
+                    <td class="title">
+                        <a href="./comment02.html">탁월한 선택했네요 최고입니다!</a>
+                    </td>
+                    <td class="name">lov***</td>
+                    <td class="date">2021.04.17</td>
+                    <td class="hit">79</td>
+                </tr>
+                <tr>
+                    <td class="title">
+                        <a href="./comment02.html">깔끔하고 튼튼하고 너무 마음에 듭니당~~ 좋아요</a>
+                    </td>
+                    <td class="name">ye3ll***</td>
+                    <td class="date">2021.04.16</td>
+                    <td class="hit">43</td>
+                </tr>
+                <tr>
+                    <td class="title">
+                        <a href="./comment02.html">다들 고민말고 지르세요</a>
+                    </td>
+                    <td class="name">ggn5***</td>
+                    <td class="date">2021.04.16</td>
+                    <td class="hit">76</td>
+                </tr>
+                <tr>
+                    <td class="title">
+                        <a href="./comment02.html">아주 잘 받았고 만족합니다~ 너무 좋네요</a>
+                    </td>
+                    <td class="name">de23m***</td>
+                    <td class="date">2021.04.16</td>
+                    <td class="hit">74</td>
+                </tr>
+                <tr>
+                    <td class="title">
+                        <a href="./comment02.html">샘플 사진만큼이나 깔끔하고 세련된 디자인에 견고함까지
+                            갖췄네요~~!!</a>
+                    </td>
+                    <td class="name">sde3***</td>
+                    <td class="date">2021.04.14</td>
+                    <td class="hit">89</td>
+                </tr>
+                <tr>
+                    <td class="title">
+                        <a href="./comment02.html">이 색 사길 진짜 잘한거같아요!!</a>
+                    </td>
+                    <td class="name">tes14***</td>
+                    <td class="date">2021.04.14</td>
+                    <td class="hit">90</td>
+                </tr>
+
+                <!-- tr이 제목 1줄입니다 보일 list 갯수만큼 li반복합니다.-->
+            </tbody>
+        </table>
+        <!-- 리스트 게시판 끝-->
+        <br />
+
+        <!-- Pagination -->
+        <ul class="pagination" style="justify-content: center">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+
+        <p>
+            <a class="btn btn-dark" href="/comment03R.html">글쓰기</a>
+            <a class="btn btn-dark" href="/comment04G.html">포토후기 보러가기</a>
+        </p>
+        </div>
+        <br><br>
+
+
+        <p class="float-end mb-1">
+            <a href="#">Back to top</a>
+        </p>
+        <!-- footer -->
+        <footer class="bg-dark text-center text-lg-start text-white">
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                © 2021 :
+                <a class="text-white" href="https://www.naver.com/" style="text-decoration:none">Dan's 가구점</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+</body>
+
+</html>
